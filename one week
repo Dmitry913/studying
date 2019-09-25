@@ -1,0 +1,113 @@
+#include <iostream>
+
+int main()
+{
+	/*std::cout << ~3 << std::endl;
+	std::cout << (3 & 0) << std::endl;
+	std::cout << (4 & 1) << std::endl;
+	std::cout << (3 | 5) << std::endl;
+	std::cout << (3 ^ 1) << std::endl;
+	std::cout << (3<<2) << std::endl;
+	std::cout << (3 >> 2) << std::endl;*/
+	/*
+	int x = 0;
+	int n = 0;
+	std::cin >> x;
+	for (int i = x;i>0; i/=2)
+	{
+		if (i%2==1)
+			n+=1;
+	}
+	std::cout << n<<std::endl;//№1
+	*/
+	/*int x = 0;
+	int n = 0;
+	int k = 0;
+	int m = 0;
+	int g = 0;
+	std::cin >> x>>n>>k;
+	for (int i = x;i>0; i/=2)
+	{
+		m += 1;
+		if ((m >= n)&&((m-n)<=k))
+		{
+			if ((i % 2) == 1)
+				g += pow(2, m - n);
+		}
+	}
+	std::cout << g<<std::endl;*///№2
+	/*int x = 0;
+	std::cin >> x;
+	for (unsigned i=1<<31; i > 0; i /= 2)
+	{
+		if (x&i)
+			std::cout << "1";
+		else std::cout << "0";
+	}
+	std::cout << "\n";*///№3
+	/*int x = 0;
+	std::cin >> x;
+	if (x < 0)
+	{
+		x = abs(x);
+		x = ~x;
+		x += 1;
+	}
+	for (unsigned int i = 1 << 31; i > 0; i /= 2)
+	{
+		if (x & i)
+			std::cout << "1";
+		else std::cout << "0";
+	}
+	std::cout << "\n";*///№4
+	/* int x = 0;
+	std::cin >> x;
+	char m;
+	int k;
+	std::cout << "R-right,L-left" << std::endl;
+	std::cin >> m >> k;
+	if (k == 'R')
+		std::cout << (x >> k) << std::endl;
+	else std::cout << (x << k) << std::endl;*///№5
+	/*int x = 0;	
+	int y = 0;
+	std::cin >> x >> y;
+	int g = 0;
+	int m = 0;
+	if (x > y)
+	{
+		for (int i = x+1; i > 0; i = i >> 1)
+		{
+			if ((x%2)<(y%2))
+				g=g+pow(2,m);
+			m += 1;
+		}
+	}
+	else for (int i = y+1
+		; i > 0; i = i >> 1)
+			{
+				if ((x % 2) < (y % 2))
+					g = g + pow(2, m);
+				m += 1;
+			}
+	std::cout << g << std::endl;*///№6
+	/*int z,x, y;
+	int x1=0, y1=0, m = 0;
+	std::cin >> x >> y;
+	if (x < y)
+		z = y;
+	else z = x;
+	for (int i = z; i > 0; i = i / 2)
+	{
+		if ((m % 2) == 0)
+		{
+			x1 += (y % 2) * pow(2, m);
+			y1 += (x % 2) * pow(2, m);
+		}
+		m++;
+		x /= 2;
+		y /= 2;
+	}
+	std::cout << x1 << " " << y1 << std::endl;*/
+	return 0;
+}
