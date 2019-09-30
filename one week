@@ -108,6 +108,6 @@ int main()
 		x /= 2;
 		y /= 2;
 	}
-	std::cout << x1 << " " << y1 << std::endl;*/
+	std::cout << x1 << " " << y1 << std::endl;*///8
 	return 0;
 }
