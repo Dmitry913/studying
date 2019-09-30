@@ -1,0 +1,60 @@
+	//massive
+	/*int ar[4];
+	int ar2[]={1,4,6,7,0};
+	std::cout<<ar2[3]<<std::endl;
+	for (int i = 1; i < 1000; ++i)
+	{
+		ar2[3] = 35;
+	}*/
+	/*int ar2[15] = { 1,3,4,5,6,8,7,4,31,421,321,32,2,3,4};
+	int min=ar2[0];
+	for (int i = 1; i < 15; ++i)
+	{
+		if (ar2[i] < min)
+			min = ar2[i];
+	}
+	std::cout << min<<std::endl;*/
+	/*srand(time(0));
+	int min;
+	int max;
+	long int sred=0;
+	std::cout << "Enter min and max";
+	std::cin >> min>> max;
+	int ar[10] = { rand()};
+	int ark[10];
+	int arch[10];
+	for (int i = 0; i < 10; ++i)
+	{
+		ar[i] = make(max,min);
+		std::cout << ar[i] << std::endl;
+		sred += ar[i];
+	}
+	std::cout << "Sred=" << sred / 10 << std::endl;
+	int big = 0;
+	for (int i = 0; i < 10; ++i)
+	{
+		if (ar[i] > sred)
+			big++;
+	}
+	if (big > 5)
+		std::cout << "Nomber element is more halph";
+	for (int i = 0; i < 10; ++i)
+	{
+		int count=0;
+		for (int j = 0; j < i; ++j)
+		{
+			count += ar[j];
+		}
+		arch[i] = count;
+		std::cout << arch[i]<<std::endl;
+	}*/
+	/*
+	int ar[] = { 30,20,10,8,0 };
+	std::cout << sizeof(ar)<<std::endl;*/
+	int ar3x2[3][2] = { {1,2}, {3,4} ,{5,6} };
+	/*for (int i = 0; i < 3; i++)
+		for (int c = 0; c < 2; c++)
+		{
+			std::cout << ar3x2[c][i] << std::endl;
+		}
+	*/
