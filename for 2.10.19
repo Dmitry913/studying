@@ -1,0 +1,129 @@
+#include <iostream>
+#include <random>
+#include <math.h>
+
+int random_num(int min, int max)
+{
+	std::random_device rd;
+	std::mt19937 mersenne(rd());
+	srand(mersenne());
+	static const double fraction = 1.0 / (static_cast <double>(RAND_MAX) + 1.0);
+	return static_cast<int>(fraction * rand() * (max - min + 1) + min);
+}
+
+int main()
+{
+	/*int day = 0;
+	int d;
+	int m = 0;
+	int k;
+	int Month;
+	int y = 0;
+	int year;
+	std::cout << "Day: ";
+	std::cin >> day;
+	std::cout << "Month: ";
+	std::cin >> Month;
+	std::cout << "Year: ";
+	std::cin >> year;
+	int a;
+	a = (14 - Month) / 12;
+	y = year - a;
+	m = Month + 12 * a - 2;
+	d = (day + y + (y / 4) - (y / 100) + (y / 400) + 31 * m / 12) % 7;
+	while (d != 5)
+	{
+		year += 1;
+		if (((year % 100 != 0) && (year % 4 == 0)) || (year % 400 == 0))
+			d += 2;
+		else d += 1;
+	}
+	std::cout << "Year=" << year<<std::endl;*///№1
+
+	/*int d;
+	int m = 0;
+	int Month;
+	int y = 0;
+	int year;
+	int day;
+	int count=0;
+	int a;
+	for (int i = 1; i < 13; ++i)
+	{
+		Month = i;
+		year = 1901;
+		day = 13;
+		a = (14 - Month) / 12;
+		y = year - a;
+		m = Month + 12 * a - 2;
+		d = (day + y + (y / 4) - (y / 100) + (y / 400) + 31 * m / 12) % 7;
+		while (year < 2001)
+		{
+			if (d == 5)
+				count += 1;
+			if (d == 7)
+				d = 0;
+			if (d == 8)
+				d = 1;
+			year += 1;
+			if (((year % 100 != 0) && (year % 4 == 0)) || (year % 400 == 0))
+				d += 2;
+			else d += 1;
+		}
+	}
+	std::cout << "Number 13 of friday= " << count << std::endl;*///№2
+	/*int n;
+	std::cout << "Enter n: ";
+	std::cin >> n;
+	std::cout << std::endl;
+	int rabit=0;
+	int goose=n;
+	if (n > 0)
+		while (goose >= 0)
+		{
+			std::cout << "G=" << goose << "; R=" << rabit << std::endl;;
+			goose -= 2;
+			rabit += 1;
+		}
+	else std::cout << "Rabits and goose are not.";*///№3
+	/*int sum=0;
+	int q = 0;
+	for (int i = 0; i < 60; ++i)
+	{
+		q = random_num(1, 10);
+		sum += q;
+		std::cout << q << " ";
+		if ((i+1) % 20 == 0)
+		{
+			std::cout<<std::endl;
+			std::cout <<"Arithmetical mean:"<<sum/20<< std::endl;
+			sum = 0;
+		}
+	}*/
+	/*int x;
+	int sum=0;
+	std::cout << "Enter the number: ";
+	std::cin >> x;
+	do
+	{
+		sum += (x % 10);
+		x /= 10;
+	}
+	while (abs(x) > 0);
+	if (sum % 3 == 0)
+		std::cout << "Your nomber shares on 3!";
+	else
+		std::cout << "Your nomber doesn't share on 3!";
+	std::cout<<std::endl;*/
+	int x;
+	std::cout << "Enter precision: ";
+	std::cin >> x;
+	long double p=0;
+	for (int i = 1; i < x+1; ++i)
+	{
+		p = p + (pow(-1, (i + 1)) / (2 * i - 1));
+	}
+	p *= 4;
+	std::cout << "P= " << p << std::endl;
+	return 0;
+}
