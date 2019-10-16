@@ -1,0 +1,115 @@
+#include <iostream>
+
+int main()
+{
+	//№1
+	/*double begin;
+	std::cout << "Enter sum loan:";
+	std::cin >> begin;
+	int persent;
+	std::cout << "Enter persent:";
+	std::cin >> persent;
+	int profit;
+	std::cout << "Enter profit:";
+	std::cin >> profit;
+	int count = 0;
+	do
+	{
+		if ((begin * persent/100.0) >= (profit))
+			break;
+		count++;
+		begin = begin*(1 + persent/100.0)-profit;
+	} while (begin > 0);
+	if (count == 0)
+		std::cout << "Cann't";
+	else std::cout << "He will pay the loan in " << count << " years" << std::endl;*/
+
+
+	//№2
+	/*int count = 0;
+	double early=0;
+	double next=0;
+	std::cout << "Enter elements:" << std::endl;
+	std::cin >> early;
+	for (int i = 0; i < 9; i++)
+	{
+		std::cin >> next;
+		if (early <= next)
+			count++;
+		early = next;
+	}
+	if (count == 10)
+		std::cout << "increasing sequence" << std::endl;
+	else
+		std::cout << "no increasing sequence" << std::endl;*/
+
+
+	//№3
+	/*int a = 0;
+	double b = 0;
+	const int persent = 3;
+	std::cout<<"Enter A and B:";
+	do
+		std::cin>>a>>b;
+	while (a>=b);
+	double sum = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		sum =sum+ b;
+		b = b * (1 + persent / 100.0);
+	}
+	a = 10 * a;
+	sum = sum - a;
+	std::cout << "Sum= " << sum;*/
+
+
+	//№4
+	/*int a = 0;
+	double b = 0;
+	double s = 0;
+	std::cout << "Enter S,A and B:";
+	do
+		std::cin >> s >> a >> b;
+	while (a >= b);
+	const int persent = 3;
+	int count = 0;
+	while (s > 0)
+	{
+		s = s - b+a;
+		b = b * (1 + persent / 100.0);
+		count++;
+	}
+	std::cout << "Sum= " << count;*/
+
+
+	//№5
+	/*double sum = 26;
+	const int persent = 6;
+	int years = 1826;
+	double k = (1+persent/100.0);
+	while (years != 2019)
+	{
+		sum*=k;
+		years++;
+	}
+	std::cout << "Sum= " << sum;*/
+	
+	//№6
+	/*int n = 0;
+	std::cout << "Enter n: ";
+	std::cin >> n;
+	int count = 0;
+	int max = n;
+	while (n != 1)
+	{
+		if (n > max)
+			max = n;
+		if (n % 2 == 0)
+			n = n / 2;
+		else n = n * 3 + 1;
+		count++;
+	}
+	std::cout << "Count= " << count << "; Max= " << max;*/
+	std::cout << std::endl;
+	return 0;
+ }
