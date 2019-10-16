@@ -1,0 +1,31 @@
+#include <iostream>
+#include <iomanip>
+
+const float n = 1.0;
+int main()
+	{
+	int k{ 0 };
+	std::cin >> k;
+	std::cout << "nomber\t\t\t" << "1/k\t\t\t" <<"1/sqr(k)\t\t\t"<< "sum qotion\t\t\t" << "sum qotion^2\t\t\t" <<"sum last\t\t\t"<< std::endl;
+	for (int i = 1; i <= k; i++)
+	{
+		std::cout << std::setprecision(10);
+		double q = n / (i*i);
+		std::cout << i << "\t\t\t" << n/i;
+		std::cout << "\t\t\t" << n / (i * i);
+		q = 0;
+		double g = 0;
+		double f = 0;
+		for (int j = 1; j <= k; j++)
+		{
+			g = g + n / (j * j);
+			q = q + n / j;
+			int64_t m = 1;
+			for (int k1 = 1; k1 <= j; k1++)
+				m = m * k1;
+			f = f + pow(-1, i) / m;
+		}
+		std::cout << "\t\t\t" << q << "\t\t\t" << g <<"\t\t\t"<<f<<std::endl;
+	}
+	return 0;
+	}
