@@ -1,0 +1,183 @@
+#include <iostream>
+#include <string>
+
+void transformation (char *temp ,int space)
+{
+
+	for (int i = space-1; i!=-1; i--)
+	{
+		if (space!=' ')
+		std::cout << *(temp+i);
+	}
+	std::cout << " ";
+}
+
+int main()
+{
+	/*const char* s = "Hey!";
+	while (*s != 0)
+	{
+		std::cout << *s;
+		s++;
+	}
+	char ac[] = "Hell-o";
+	for (int k = 0; ac[k] != 0; k++)
+	{
+		std::cout << ac[k];
+	}
+	char is[50];
+	std::cin.getline(is,sizeof(is));
+	std::cout << is << std::endl;*/
+	//1
+	/*for (char i = 0; i < 32; i++)
+	{
+		std::cout << i << std::endl;
+	}*/
+	//2
+	/*char ac[50];
+	std::cout << static_cast<int>('A')<<std::endl;
+	std::cout << static_cast<int>('a')<<std::endl;
+	
+	std::cin.getline(ac, sizeof(ac));
+	for (int i = 0; ac[i]!=0; i++)
+	{
+		if (ac[i] != ' ')
+		{
+			if ((static_cast<int>('a') <= ac[i]) && (static_cast<int>('a') + 25 >= ac[i]))
+				ac[i] = static_cast<int>(ac[i]) - 32;
+			else
+				ac[i] = static_cast<int>(ac[i]) + 32;
+		}
+	};
+	int i = 0;
+	while (ac[i]!=0)
+	{
+		std::cout << ac[i];
+		i++;
+	}*/
+	//4
+	/*char sentens[100];
+	std::cin.getline(sentens,sizeof(sentens));
+	char *start=sentens;
+	int end=0;
+	int i = -1;
+	do
+	{
+		i++;
+		if ((sentens[i] == ' ')||(sentens[i]==0))
+		{
+			end = end + i;
+			transformation(start, end);
+			start =sentens + i + 1;
+			end = -i;
+		}
+	}
+	 while (sentens[i]!=0);*/
+	//5
+	/*std::cout << "use English lenguage!";
+	int array[26]{0};
+	char string[200];
+	std::cin.getline(string, sizeof(string));
+	int m;
+	for (int i = 0; string[i] != 0; i++)
+	{
+		m = string[i];
+		m = m - static_cast<int>('a');
+		array[m] ++;
+	}
+	for (int i = 0; string[i] != 0; i++)
+	{
+		m = string[i];
+		m = m - static_cast<int>('a');
+		m=array[m]%26+static_cast<int>('a');
+		string[i] = static_cast<char>(m);
+		std::cout<<string[i];
+	}*/
+	//Dinamic programm
+	/*int* pi = new int;
+	delete pi;
+	int *pi1 = new int[8];
+	delete[] pi1;
+	int i = 0;
+	int* p = new int;
+	while (true)
+	{
+		if (i == 40000000)
+			break;
+		i++;
+		if (i%10000==0)
+		std::cout << i << std::endl;
+		p = new int;
+	}
+	std::cout << p;*/
+	//6
+	/*int lenght = 0;
+	std::cout << "Enter lenght string:";
+	std::cin >> lenght;
+	char* string1 = new char[lenght];
+	char* string2 = new char[lenght];
+	std::cout << "Enter one string:";
+	std::cin >> string1;
+	std::cout << "Enter two string:";
+	std::cin >> string2;
+	int m = sizeof(string1);
+	int i = sizeof(string2);
+	int k = 0;
+	if (m > i)
+	{
+		k = -1;
+		m == i;
+	}
+	int q = 0;
+	while (1)
+	{
+		if (m == q)
+		{
+			if ((m==i)&&(k==-1))
+			std::cout << "Firs string > second string!";
+			else if (m<i)
+			std::cout << "Second string > first string!";
+			else 
+			std::cout << "Firs string = second string!";
+			break;
+		};
+		if (string1[q] > string2[q])
+		{
+			std::cout << "Firs string > second string!";
+			break;
+		}
+		else if (string2[q] > string1[q])
+		{
+			std::cout << "Second string >first string!";
+			break;
+		}
+
+		q++;
+		delete[] string1;
+		delete[] string2;
+	}*/
+	/*
+	int lenght = 0;
+	std::cout << "Enter lenght string:";
+	std::cin >> lenght;
+	char* string1 = new char[lenght];
+	char* string2 = new char[lenght];
+	std::cout << "Enter one string:";
+	std::cin >> string1;
+	std::cout << "Enter two string:";
+	std::cin >> string2;
+	std::cout << std::endl;
+	char* string3 = new char[(2*lenght)];
+	int m = 0;
+	if (sizeof(string1) > sizeof(string2))
+		m = sizeof(string2);
+	else 
+		m = sizeof(string1);
+	for (int i=0;i<=m;i++)
+	*/
+
+	std::string array[10];
+	std::getline(std::cin, array);
+
+	return 0;
+}
