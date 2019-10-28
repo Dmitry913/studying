@@ -1,0 +1,75 @@
+#include <iostream>
+
+int main()
+{
+	//1
+	/*int lenght = 0;
+	std::cout << "Enter N:";
+	std::cin >> lenght;
+	int *array = new int[lenght];
+	std::cout << "Enter array:" << std::endl;
+	unsigned int sum=0;
+	for (int i = 0; i < lenght; i++)
+	{
+		std::cin >> array[i];
+		sum += array[i];
+	}
+	sum = (0 + lenght) / 2 * (lenght+1) - sum;
+	std::cout << "Missing element:" << sum;*/
+	//2
+	/*int lenght = 0;
+	std::cout << "Enter N:";
+	std::cin >> lenght;
+	int *array = new int[lenght];
+	std::cout << "Enter array:" << std::endl;
+	for (int i = 0; i < lenght; i++)
+	{
+		std::cin >> array[i];
+	}
+	int count=0;
+	for (int i = 0; i < lenght; i++)
+		if (array[i] != 0)
+		{
+			int m = array[i];
+			count++;
+			for (int j = 0; j < lenght; j++)
+				if (m == array[j])
+					array[j] = 0;
+		};
+	std::cout <<"Diffirent value:"<< count;*/
+	//3
+	/*const int lenght = 8;
+	int array[lenght]{ };
+	int m;
+	std::cout << "Enter m:";
+	std::cin >> m;
+	int i = 0;
+	int count = 0;
+	int k= 1;
+	while (count != lenght-1)
+	{
+		if (k % m == 0)
+		{
+			count++;
+			array[i] = 1;
+			k = 0;
+		}
+		if (i >= lenght-1)
+			i =i-lenght;
+		while (array[i + 1] == 1)
+		{
+			if (i >= lenght - 1)
+				i = i - lenght;
+			i++;
+			if (i >= lenght - 1)
+				i = i - lenght;
+		};
+		i++;
+		k++;
+	}
+	for (int j = 0; j < lenght; j++)
+		if (array[j] != 1)
+			std::cout << "Live:" << j;*/
+	std::cout << std::endl;
+	return 0;
+}
