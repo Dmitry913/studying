@@ -1,0 +1,155 @@
+#include <iostream>
+#include<random>
+#include <ctime>
+
+void swap(int& first,int& second)
+{
+	const int temp = first;
+	first = second;
+	second = temp;
+}
+
+void takecolor(int& temp)
+{
+	switch (temp)
+	{
+	case 1:
+		std::cout<< "к";
+		break;
+	case 2:
+		std::cout << "б";
+		break;
+	case 3:
+		std::cout << "с";
+		break;
+	default:
+		break;
+	}
+}
+
+int value(int max)
+{
+	double rand_m = 1.0 / ((static_cast<double>(RAND_MAX) + 1.0));
+	return static_cast<int>(rand() * rand_m * (max)+1);
+}
+
+double double_value(int max)
+{
+	double rand_m = 1.0 / ((static_cast<double>(RAND_MAX) + 1.0));
+	return (rand() * rand_m * (max)+1)*pow(-1,rand());
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	//1
+	/*int lenght = 0;
+	std::cout << "Enter lenght: ";
+	std::cin >> lenght;
+	int k = 0;
+	std::cout << "Enter k: ";
+	std::cin >> k;
+	int* array = new int[lenght];
+	for (int i = 0; i < lenght; i++)
+	{
+		array[i] = value(10);
+		std::cout << array[i];
+	}
+	std::cout << std::endl;
+	for (int i=0;i<k;i++)
+	{	
+		int temp1 = array[0];
+		for (int j = 0; j < lenght; j++)
+		{
+			int temp2 =array[j];
+			array[j] = temp1;
+			temp1 = temp2;
+		}
+		array[0] = temp1;
+	}
+	for (int i = 0; i < lenght; i++)
+	{
+		std::cout << array[i];
+	}*/
+	//2
+	/*int lenght = 0;
+	std::cout << "Enter lenght: ";
+	std::cin >> lenght;
+	int *array = new int[lenght];
+	for (int i = 0; i < lenght; i++)
+	{
+		array[i] = value(3);
+		takecolor(array[i]);
+	}
+	int i = 1;
+	while (i != 0)
+	{
+		i = 0;
+		for (int j = 0; j < lenght; j++)
+		{
+			if (array[j] > array[j + 1])
+			{
+				swap(array[j], array[j + 1]);
+				i++;
+			}
+		}
+	}
+	std::cout << std::endl;
+	for (int i = 0; i < lenght-1; i++)
+	{
+		takecolor(array[i]);
+		if ((array[i])!= (array[i + 1]))
+			std::cout << std::endl;
+	}
+	takecolor(array[i]);*/
+	//3
+	/*std::cout << "Enter M and N:";
+	int M = 0;
+	int N = 0;
+	std::cin >> M >> N;
+	double* array = new double[N];
+	for (int i = 0; i < N; i++)
+	{
+		array[i] = double_value(20);
+		array[i] = double_value(20);
+		std::cout << array[i] << " ";
+	}
+	std::cout << std::endl;
+	int i = 0;
+	double max_sum = pow(2, 32);
+	int i_min = 0;
+	double sum = 0;
+	while ((i + M) < N)
+	{
+		for (int j = i; j < i + M; j++)
+			sum += array[j];
+		if (abs(sum) < abs(max_sum))
+		{
+			max_sum = sum;
+			i_min = i;
+		}
+		i++;
+		sum = 0;
+	}
+	std::cout <<"I= "<< i_min+1<<"; Sum="<<max_sum;
+	std::cout << std::endl;
+	std::cout << "Subsequence: ";
+	for (int i = i_min; i < (i_min + M); i++)
+		std::cout << array[i]<<" ";*/
+	//4
+	/*int array[8][8];
+	for (int i = 0; i < 8; i++)
+		for (int j = 0; j < 8; j++)
+			if ((i + j) % 2 == 0)
+				array[i][j] = 0;
+			else 
+				array[i][j] = 1;
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+			std::cout << array[i][j]<<" ";
+		std::cout << std::endl;
+	}*/
+	std::cout << std::endl;
+	return 0;
+}
