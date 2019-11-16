@@ -1,0 +1,144 @@
+#include <iostream>
+#include <random>
+
+int get_value()
+{
+	std::random_device rd;
+	std::mt19937 mersenne(rd());
+	double persent = 1 / (pow(2, 32));
+	return static_cast<int> (persent * mersenne() * 5 * pow(-1, mersenne()));
+}
+
+int main()
+{
+	int lenght = 0;
+	std::cout << "ENter N:";
+	std::cin >> lenght;
+	if (lenght > 0)
+	{
+		int** matrix = new int* [lenght];
+		//1
+		/*
+		int* sum = new int[lenght];
+		for (int i = 0; i < lenght; i++)
+		{
+			sum[i] = 0;
+			matrix[i] = new int[lenght];
+		}
+		for (int i = 0; i < lenght; i++)
+		{
+			for (int j = 0; j < lenght; j++)
+			{
+				matrix[i][j] = get_value();
+				sum[j] =sum[j]+ matrix[i][j];
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << std::endl;
+		}
+		std::cout << std::endl;
+		for (int i = 0; i < lenght; i++)
+		{
+			for (int j = 0; j < lenght; j++)
+			{
+				if (i == j)
+					matrix[i][j] = sum[i];
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << std::endl;
+		}
+		delete[] sum;
+		for (int i = 0; i < lenght; i++)
+			delete matrix[i];
+		delete[] matrix;*/
+		//2
+		/*
+		for (int i = 0; i < lenght; i++)
+		{
+			matrix[i] = new int[lenght];
+		}
+		for (int i = 0; i < lenght; i++)
+		{
+			for (int j = 0; j < lenght; j++)
+			{
+				matrix[i][j] = get_value();
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << std::endl;
+		}
+		std::cout << std::endl;
+		for (int i = 0; i < lenght; i++)
+		{
+			for (int j = i+1; j < lenght; j++)
+			{
+				int temp = matrix[i][j];
+				matrix[i][j] = matrix[j][i];
+				matrix[j][i] = temp;
+			}
+		}
+		for (int i = 0; i < lenght; i++)
+		{
+			for (int j = 0; j < lenght; j++)
+				std::cout << matrix[i][j] << "\t";
+			std::cout << std::endl;
+		}*/
+		//3
+		/*int* sum_line = new int[lenght];
+		int* sum_colomn = new int[lenght];
+		for (int i = 0; i < lenght; i++)
+		{
+			sum_colomn[i] = 0;
+			sum_line[i] = 0;
+			matrix[i] = new int[lenght];
+		}
+		for (int i = 0; i < lenght; i++)
+		{
+			for (int j = 0; j < lenght; j++)
+			{
+				std::cin>>matrix[i][j];
+				sum_colomn[j] = sum_colomn[j] + matrix[i][j];
+				sum_line[i] = sum_line[i] + matrix[i][j];
+				std::cout << matrix[i][j] << "\t";
+			}
+			std::cout << std::endl;
+		}
+		for (int i = 0; i < lenght; i++)
+		{
+			std::cout << "Sum line " << i << "= " << sum_line[i]<<"\t";
+			std::cout << "Sum colomn " << i << "= " << sum_colomn[i];
+			std::cout << std::endl;
+		}
+		delete[] sum_colomn;
+		delete[] sum_line;*/
+		//4
+		/*int* sum_line = new int[lenght];
+		for (int i = 0; i < lenght; i++)
+		{
+			sum_line[i] = 0;
+			matrix[i] = new int[lenght];
+		}
+		for (int i = 0; i < lenght; i++)
+		{
+			size_t counter = 0;
+			for (int j = 0; j < lenght; j++)
+			{
+				std::cin >> matrix[i][j];
+				if (matrix[i][j] < 0)
+					counter++;
+				sum_line[i] = sum_line[i] + matrix[i][j];
+				std::cout << matrix[i][j] << "\t";
+			}
+			if (counter == 0)
+				sum_line[i] = 0;
+			std::cout << std::endl;
+		}
+		for (int i = 0; i < lenght; i++)
+			if (sum_line[i]!= 0)
+				std::cout << "Sum " << i+1 << " line = " << sum_line[i]<<"\t";*/
+		for (int i = 0; i < lenght; i++)
+			delete matrix[i];
+		delete[] matrix;
+	}
+	else std::cout << "Repead enter";
+	std::cout << std::endl;
+	return 0;
+}
