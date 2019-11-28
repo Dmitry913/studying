@@ -1,0 +1,219 @@
+#include <iostream>
+#include <random>
+#include <cmath>
+
+int get_value()
+{
+	std::random_device rd;
+	std::mt19937 mersenne(rd());
+	double persent = 1 / (pow(2, 32));
+	return static_cast<int> ((persent * mersenne() * 30));
+}
+bool simple(int& temp)
+{
+	for (int i = 2; i < abs(temp); i++)
+		if ((temp % i) == 0)
+			return false;
+	return true;
+}
+
+int mget_value()
+{
+	std::random_device rd;
+	std::mt19937 mersenne(rd());
+	double persent = 1 / (pow(2, 32));
+	return static_cast<int> ((persent * mersenne() * (10))*pow(-1,mersenne()));
+}
+
+int main()
+{
+	//1
+	/*std::cout << "Enter number of line: ";
+	int line;
+	std::cin >> line;
+	std::cout << "Enter number of colomn: ";
+	int colomn;
+	std::cin >> colomn;
+	int** array = new int* [line];
+	for (int i = 0; i < line; i++)
+		array[i] = new int[colomn];
+	for (int i = 0; i < line; i++)
+	{
+		for (int j = 0; j < colomn; j++)
+		{
+			array[i][j] = mget_value();
+			std::cout << array[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+	int i = 1;
+	while (i != 0)
+	{
+		i = 0;
+		int sum1 = 0;
+		int sum2 = 0;
+		for (int m = 0; m < colomn - 1; m++)
+		{
+			for (int j = 0; j < line; j++)
+			{
+				sum1 += array[j][m];
+				sum2 += array[j][m + 1];
+			}
+			if (sum1 > sum2)
+			{
+				for (int j = 0; j < line; j++)
+					std::swap(array[j][m], array[j][m + 1]);
+				i++;
+			}
+		}
+
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	for (int i = 0; i < line; i++)
+	{
+		for (int j = 0; j < colomn; j++)
+		{
+			std::cout << array[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+	for (int i = 0; i < line; i++)
+		delete[] array[i];
+	delete[] array;*/
+	//2
+	/*std::cout << "Enter number of line: ";
+	int line;
+	std::cin >> line;
+	std::cout << "Enter number of colomn: ";
+	int colomn;
+	std::cin >> colomn;
+	int** array = new int* [line];
+	for (int i = 0; i < line; i++)
+		array[i] = new int[colomn];
+	int min = 100;
+	int max_i = 0;
+	int min_i = 0;
+	int max_j = 0;
+	int min_j = 0;
+	int max = -100;
+	for (int i = 0; i < line; i++)
+	{
+		for (int j = 0; j < colomn; j++)
+		{
+			array[i][j] = mget_value();
+			if (array[i][j] < min)
+			{
+				min = array[i][j];
+				min_i = i;
+				min_j = j;
+			}
+			if (array[i][j] > max)
+			{
+				max = array[i][j];
+				max_i = i;
+				max_j = j;
+			}
+			std::cout << array[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << "Max= " << max << ". line= " << max_i+1 << ". colomn= " << max_j+1<<std::endl;
+	std::cout << "Min= " << min << ". line= " << min_i+1 << ". colomn= " << min_j+1<<std::endl;*/
+	//3
+	/*std::cout << "Enter number of line: ";
+	int line;
+	std::cin >> line;
+	std::cout << "Enter number of colomn: ";
+	int colomn;
+	std::cin >> colomn;
+	int** array = new int* [line];
+	for (int i = 0; i < line; i++)
+		array[i] = new int[colomn];
+	int number = 0;
+	std::cout << "Enter number:";
+	std::cin >> number;
+	bool is=false;
+	for (int i = 0; i < line; i++)
+	{
+		for (int j = 0; j < colomn; j++)
+		{
+			array[i][j] = mget_value();
+			if (array[i][j] == is)
+				is = true;
+			std::cout << array[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+	if (is)
+		std::cout << number <<" is in the array. ";
+	else 
+		std::cout << number <<" isn't in the array. ";*/
+	//4
+	/*std::cout << "Enter number of line: ";
+	int line;
+	std::cin >> line;
+	std::cout << "Enter number of colomn: ";
+	int colomn;
+	std::cin >> colomn;
+	int** array = new int* [line];
+	for (int i = 0; i < line; i++)
+		array[i] = new int[colomn];
+	for (int i = 0; i < line; i++)
+	{
+		for (int j = 0; j < colomn; j++)
+		{
+			array[i][j] = mget_value();
+			std::cout << array[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+	int min = 100;
+	int max_i = 0;
+	int min_i = 0;
+	int max_j = 0;
+	int min_j = 0;
+	int max = -100;
+	std::cout << "Simple numbers: ";
+	for (int i = 0; i < line; i++)
+	{
+		for (int j = 0; j < colomn; j++)
+		{
+			if (simple(array[i][j]))
+			{
+				std::cout << array[i][j] << "\t";
+				if (array[i][j] > max)
+				{
+					max = array[i][j];
+					max_i = i;
+					max_j = j;
+				}
+				if (array[i][j]<min)
+				{
+					min = array[i][j];
+					min_i = i;
+					min_j = j;
+				}
+
+			}
+		}
+	}
+	std::cout << std::endl;
+	std::cout << "Max= " << max << std::endl;
+	std::cout << "Min= " << min << std::endl;
+	int temp = array[max_i][max_j];
+	array[max_i][max_j] = array[min_i][min_j];
+	array[min_i][min_j]=temp;
+	for (int i = 0; i < line; i++)
+	{
+		for (int j = 0; j < colomn; j++)
+		{
+			std::cout << array[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}*/
+	std::cout << std::endl;
+	return 0;
+}
