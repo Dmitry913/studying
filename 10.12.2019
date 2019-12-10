@@ -1,0 +1,294 @@
+#include<iostream>
+#include <fstream>
+
+char getvalue16(int temp)
+{
+	switch (temp)
+	{
+	case 0:
+		return '0';
+		break;
+	case 1:
+		return '1';
+		break;
+	case 2:
+		return '2';
+		break;
+	case 3:
+		return '3';
+		break;
+	case 4:
+		return '4';
+		break;
+	case 5:
+		return '5';
+		break;
+	case 6:
+		return '6';
+		break;
+	case 7:
+		return '7';
+		break;
+	case 8:
+		return '8';
+		break;
+	case 9:
+		return '9';
+		break;
+	case 10:
+		return 'A';
+		break;
+	case 11:
+		return 'B';
+		break;
+	case 12:
+		return 'C';
+		break;
+	case 13:
+		return 'D';
+		break;
+	case 14:
+		return 'E';
+		break;
+	case 15:
+		return 'F';
+		break;
+	default:
+		break;
+	}
+}
+
+void code(char temp)
+{
+	switch (temp)
+	{
+	case 'A':
+		std::cout << ".-";
+		break;
+	case 'B':
+		std::cout << "-...";
+		break;
+	case 'C':
+		std::cout << "-.-.";
+		break;
+	case 'D':
+		std::cout << "-..";
+		break;
+	case 'E':
+		std::cout << ".";
+		break;
+	case 'F':
+		std::cout << "..-.";
+		break;
+	case 'G':
+		std::cout << "--.";
+		break;
+	case 'H':
+		std::cout << "....";
+		break;
+	case 'I':
+		std::cout << "..";
+		break;
+	case 'J':
+		std::cout << ".---";
+		break;
+	case 'K':
+		std::cout << "-.-";
+		break;
+	case 'L':
+		std::cout << ".-..";
+		break;
+	case 'M':
+		std::cout << "--";
+		break;
+	case 'N':
+		std::cout << "-.";
+		break;
+	case 'O':
+		std::cout << "---";
+		break;
+	case 'P':
+		std::cout << ".--.";
+		break;
+	case 'Q':
+		std::cout << "--.-";
+		break;
+	case 'R':
+		std::cout << ".-.";
+		break;
+	case 'S':
+		std::cout << "...";
+		break;
+	case 'T':
+		std::cout << "-";
+		break;
+	case 'U':
+		std::cout << "..-";
+		break;
+	case 'V':
+		std::cout << "..-";
+		break;
+	case 'W':
+		std::cout << ".--";
+		break;
+	case 'X':
+		std::cout << "-..-";
+		break;
+	case 'Y':
+		std::cout << "-.--";
+		break;
+	case 'Z':
+		std::cout << "--..";
+		break;
+	case '1':
+		std::cout << ".----";
+		break;
+	case '2':
+		std::cout << "..---";
+		break;
+	case '3':
+		std::cout << "...--";
+		break;
+	case '4':
+		std::cout << "....-";
+		break;
+	case '5':
+		std::cout << ".....";
+		break;
+	case '6':
+		std::cout << "-....";
+		break;
+	case '7':
+		std::cout << "--...";
+		break;
+	case '8':
+		std::cout << "---..";
+		break;
+	case '9':
+		std::cout << "----.";
+		break;
+	case '0':
+		std::cout << "-----";
+		break;
+	case '.':
+		std::cout << ".-.-.-";
+		break;
+	case ',':
+		std::cout << "--.--";
+		break;
+	case ':':
+		std::cout << "---...";
+		break;
+	case '?':
+		std::cout << "..--..";
+		break;
+	case '-':
+		std::cout << "-....-";
+		break;
+	case '/':
+		std::cout << "--..-";
+		break;
+
+	default:
+		break;
+	}
+}
+
+int main()
+{
+	//1
+	/*char array[250];
+	std::cin.getline(array, 250);
+	int lenght = strlen(array);
+	std::ofstream new_file("C:\\Users\\User\\source\\repos\\работа по эвм\\newfile.txt", std::ios_base::out | std::ios_base::binary);
+	if (new_file.is_open())
+	{
+		new_file.write((char*) & array, lenght);
+		if (lenght % 2 == 0)
+			for (int i = 0; i < lenght; i++)
+				new_file.put(array[lenght - 1 - i]);
+		else
+			for (int i = 0; i < lenght; i++)
+				new_file.put(array[lenght - 1 - i]);
+	}
+	else std::cout << "Erroy opened.";*/
+	//2
+	/*char array[250];
+	std::cin.getline(array, 250);
+	int i = 0;
+	bool check=true;
+	while (array[i] != '\0')
+	{
+		if (array[i] != '0' && array[i] != '1')
+			check = false;
+		i++;
+	}
+	if (check)
+		std::cout << "it is a binary number!";
+	else std::cout << "it isn't a binary number!";*/
+	//3
+	/*char array[250]{};
+	std::cin.getline(array, 250);
+	int sum = 0;
+	for (int i = 0; i < 8; i++)
+	{
+		sum = sum + pow(2, i) * (static_cast<int>(array[8 - 1 - i]) - static_cast<int>('0'));
+	}
+	std::cout << sum;*/
+	//4
+	/*int number = 0;
+	std::cout << "enter number:  ";
+	std::cin >> number;	
+	int mysystem = 0;
+	std::cout << "enter number system:  ";
+	std::cin >> mysystem;
+	if (mysystem > 1 && mysystem < 11)
+	{
+		if (number < 0)
+		{
+			std::cout << "-";
+			number *= -1;
+		}
+		int array[250]{};
+		int lenght = 0;
+		while (number != 0)
+		{
+			array[lenght] = number % mysystem;
+			number = number / mysystem;
+			lenght++;
+		}
+		for (int i = 0; i < lenght; i++)
+		{
+			std::cout << array[lenght - 1 - i];
+		}
+		if (number == 0)
+			std::cout << "0";
+	}
+	else std::cout << "number system isn't right";*/
+	//5
+	/*int number = 0;
+	std::cin >> number;
+	char array[255]{};
+	int lenght = 0;
+	while (number != 0)
+	{
+		array[lenght] = getvalue16(number % 16);
+		number /= 16;
+		lenght++;
+	}
+	for (int i = 0; i < lenght; i++)
+		std::cout << array[lenght - 1 - i];
+	std::cout << std::endl;*/
+	//6
+	/*char array[255]{};
+	std::cin.getline(array, 255);
+	std::cout << std::endl;
+	int i = 0;
+	while (array[i] != '\0')
+	{
+		code(array[i]);
+		i++;
+	}*/
+	std::cout << std::endl;
+	return 0;
+}
