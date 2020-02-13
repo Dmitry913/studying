@@ -1,0 +1,67 @@
+#include <iostream>
+#include <random>
+
+int get_el()
+{
+	std::random_device rd;
+	std::mt19937 mersenne(rd());
+	double persent = 1.0 / pow(2, 32);
+	return static_cast<int>(persent * mersenne() * 10 + 1);
+}
+
+double determination(double **temp, int line)
+{
+	int i = 0;
+	for ( i = 0; i < line - 1; i++)
+	{
+		for (int j = i; j < line-1; j++)
+		{
+			double first = temp[j + 1][i];
+			for (int q = i; q < line; q++)
+			{
+				if (temp[i][i]!=0)
+					temp[j + 1][q] -=temp[i][q] / temp[i][i]*first;
+			}
+		}
+		for (int m = 0; m < line; m++)
+		{
+			std::cout << temp[i][m] << "\t";
+		}
+		std::cout << std::endl;
+	}
+	for (int m = 0; m < line; m++)
+	{
+		std::cout << temp[i][m] << "\t";
+	}
+	std::cout << std::endl;
+	double ret = temp[0][0];
+	for (int i = 1; i < line; i++)
+		ret *= temp[i][i];
+	if (ret * 5 == 0)
+		return 0;
+	return ret;
+}
+
+int main()
+{
+	int number_line = 0;
+	std::cin >> number_line;
+	double** array = new double* [number_line];
+	for (int i = 0; i < number_line; i++)
+	{
+		double* colomn = new double[number_line];
+		array[i] = colomn;
+	}
+	for (int i = 0; i < number_line; i++)
+	{
+		for (int j = 0; j < number_line; j++)
+		{
+			array[i][j] = get_el();
+			std::cout << array[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
+	std::cout << std::endl; std::cout << std::endl;
+	std::cout << determination(array, number_line)<<std::endl;
+	return 0;
+}
