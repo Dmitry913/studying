@@ -1,0 +1,117 @@
+#include <iostream>
+#include <fstream>
+
+class Translation
+{
+public:
+	char* rus;
+	char* eng;
+	Translation()
+	{
+		rus = '\0';
+		eng = '\0';
+	}
+};
+
+class Vocabulary
+{
+private:
+	size_t size;
+	Translation* vocabulary;
+	size_t position;
+public:
+	Vocabulary()
+	{
+		vocabulary = new Translation[1000];
+		size = 1000;
+		position = 0;
+	};
+	void Add_word(char* en, char* ru)
+	{
+		if (position == size)
+		{
+			Translation* temp = new Translation[position];
+			for (int i = 0; i < position; i++)
+				temp[i] = vocabulary[i];
+			delete[] vocabulary;
+			vocabulary = new Translation[position + 100];
+			for (int i = 0; i < position; i++)
+				vocabulary[i] = temp[i];
+			delete[] temp;
+			size += 100;
+		}
+		vocabulary[position].eng = en;
+		//std::cout<<vocabulary[position].eng<<"\t";
+		vocabulary[position].rus = ru;
+		//std::cout<<vocabulary[position].rus << std::endl;
+		position++;
+	}
+	char* Get_rutranslation(char* word)
+	{
+		size_t number_word = 0;
+		while (number_word != position)
+		{
+			int i = 0;
+			while (word[i] != '\0' && word[i]==vocabulary[number_word].eng[i])
+			{
+				i++;
+			}
+			if (word[i] == vocabulary[number_word].eng[i])
+				return vocabulary[number_word].rus;
+			number_word++;
+		}
+		std::cout << "Word wasn't searched. Would you add word in vocabulary?(yes(y)\\not(n)) " << std::endl;
+		return nullptr;
+	}
+};
+
+int main()
+{
+	std::fstream file("C:\\Users\\User\\source\\repos\\работа по равесли\\Debug\\en_ru.txt", std::ios_base::in | std::ios_base::out);
+	Vocabulary vocabularu;
+	if (file.is_open())
+	{
+		while (!file.eof())
+		{
+			char* word_en = new char[300]{ '\0' };
+			char* word_ru = new char[500]{ '\0' };
+			file >> word_en;
+			file.get();
+			file.getline(word_ru, 500);
+			vocabularu.Add_word(word_en, word_ru);
+		}
+		file.close();
+	}
+	else std::cout << "file isn't opened" << std::endl;
+	char contin = 'y';
+	while (contin == 'y')
+	{
+		std::cout << "Enter word that you want to translate: ";
+		char* word = new char[300];
+		std::cin >> word;
+		char* translation = vocabularu.Get_rutranslation(word);
+		if (translation == '\0')
+		{
+			char temp;
+			std::cin >> temp;
+			if (temp == 'y')
+			{
+				std::ofstream file("C:\\Users\\User\\source\\repos\\работа по равесли\\Debug\\en_ru.txt", std::ios_base::out | std::ios_base::app);
+				translation=new char[300]{'\0'};
+				if (file.is_open())
+				{
+					std::cout << "Enter translation: ";
+					std::cin >> translation;
+					file << '\n' << word << '\t' << translation;
+					file.close();
+				}
+				vocabularu.Add_word(word, translation);
+			}
+		}
+		else std::cout << translation<<std::endl;
+		std::cout << " Would you continue?(yes(y)/not(n)): ";
+		std::cin >> contin;
+	}
+	std::cout << "Thank you!" << std::endl;
+	return 0;
+}
