@@ -1,0 +1,81 @@
+#include <iostream>
+#include <random>
+
+
+int getRandElem() {
+	std::random_device rd;
+	std::mt19937 mersenne(rd());
+	const double persent = 1.0 / pow(2, 32);
+	return static_cast<int>(persent * mersenne() * (10.0 )+1.0);
+}
+
+int main() {
+	//1
+	const size_t size = 20;
+	int array[size];
+	for (size_t i = 0; i < size; ++i) {
+		array[i] = getRandElem();
+		std::cout << array[i] << ", ";
+	}
+	/*for (size_t i = 0; i < size; ++i) {
+		int min = 30;
+		size_t index = 0;
+		for (size_t j = i; j < size; ++j) {
+			if (min > array[j]) {
+				index = j;
+				min = array[j];
+			}
+		}
+		std::swap(array[i], array[index]);
+	}*/
+
+	//2
+	/*size_t start = 1;
+	while (start < size) {
+		while (array[start-1] <= array[start] && start < size)
+			start++;
+		size_t i = 0;
+		while (start<size && array[start - i-1] > array[start-i] && start - i-1 >= 0) {
+			std::swap(array[start - i-1], array[start-i]);
+			i++;
+		}
+		start++;
+	}
+	*/
+
+	//3
+
+
+	/*size_t start = 1;
+	while (start < size) {
+		while (array[start - 1] <= array[start] && start < size)
+			start++;
+		size_t i = 0;
+		int temp = array[start];
+		size_t hi = start - 1;;
+		size_t lo = 0;
+		size_t search = 0;
+		while (lo!=hi) {
+			search=lo + (hi - lo) / 2;
+			if (temp > array[search]) {
+				lo = search+1;
+			}
+			else if (temp <= array[search]) {
+				hi=search;
+			}
+		}
+		while (start - i != lo) {
+			std::swap(array[start - i - 1], array[start - i]);
+			++i;
+		}
+		start++;
+	}*/
+
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+	for (size_t i = 0; i < size; ++i) {
+		std::cout << array[i] << ", ";
+	}
+	return 0;
+}
